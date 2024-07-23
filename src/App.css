@@ -1,10 +1,22 @@
 .App {
   text-align: center;
+  transition: all 1s ease 0s;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+:root {
+  --primaryColor: #FD2E5A;
+  --secondaryColor: #DCF5F5;
+  --primaryTextColor: #484848;
+  --secondaryTextColor: #A8A8A8;
+  --primaryBg:#ffffff;
+  --secondaryBg:#EDFAFA;
+  --blueBorder:#DEF6F5;
+  --boxShadowColor: 0px 1px 12px 0px #00000029;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -32,6 +44,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
