@@ -1,29 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 .App {
   text-align: center;
+  width: 100vw;
+  position: relative;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   transition: all 1s ease 0s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  cursor: pointer;
 }
+
+a {
+  text-decoration: none;
+  color: var(--primaryTextColor);
+}
+
 
 :root {
   --primaryColor: #FD2E5A;
   --secondaryColor: #DCF5F5;
   --primaryTextColor: #484848;
   --secondaryTextColor: #A8A8A8;
-  --primaryBg:#ffffff;
-  --secondaryBg:#EDFAFA;
-  --blueBorder:#DEF6F5;
+  --terniaryTextColor: #073A4D;
+  --primaryBg: #ffffff;
+  --secondaryBg: #EDFAFA;
+  --tertiaryBg: #EDEDED;
+  --blueBorder: #DEF6F5;
+  --grayBorder: #DFDFDF;
   --boxShadowColor: 0px 1px 12px 0px #00000029;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;
@@ -40,12 +56,9 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
+@media screen and (min-width: 1366px) {
+  .App {
+    width: 1366px !important;
+    margin: auto;
   }
 }
