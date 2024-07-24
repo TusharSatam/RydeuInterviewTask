@@ -81,7 +81,7 @@ const QueryForm = ({ isExpand, isCollapsing }) => {
                         handleChange={handleChange}
                     />
                 </div>
-                <button type="submit" className={styles.submitButton}>Submit</button>
+                <button type="submit" className="formSubmitBtn">Submit</button>
             </form>
         </div>
     );

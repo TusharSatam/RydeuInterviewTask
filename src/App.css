@@ -55,10 +55,35 @@ a {
 .App-link {
   color: #61dafb;
 }
-
+.formSubmitBtn{
+  width: 191px;
+  height: 33px;
+  gap: 0px;
+  border-radius: 3px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0px;
+  background: var(--primaryColor);
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 24.88px;
+  text-align: left;
+  margin: auto;
+}
 @media screen and (min-width: 1366px) {
   .App {
     width: 1366px !important;
     margin: auto;
   }
+  .submitButton {
+    width: 171px;
+    height: 33px;
+    font-size: 0.688rem;
+    font-weight: 700;
+    line-height: 17.1px;
+}
 }
