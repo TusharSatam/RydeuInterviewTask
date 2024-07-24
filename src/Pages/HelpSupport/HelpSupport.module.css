@@ -342,14 +342,12 @@
 .submitButton {
     width: 191px;
     height: 33px;
-    gap: 0px;
     border-radius: 3px;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    opacity: 0px;
     background: var(--primaryColor);
     font-family: "Montserrat";
     font-size: 1rem;
@@ -357,6 +355,7 @@
     line-height: 24.88px;
     text-align: left;
     margin: auto;
+    opacity: 1;
 }
 
 .submitButton:hover {
