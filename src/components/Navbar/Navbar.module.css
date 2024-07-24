@@ -102,7 +102,7 @@
     justify-content: center;
     align-items: center;
     background: #A0A0A0;
-    padding: 3px;
+    padding: 0.188rem;
     border-radius: 50%;
 }
 
@@ -122,7 +122,7 @@
     .navbarContainer {
         align-items: center;
         height: 50px;
-        padding: 0px 12px 0px 12px;
+        padding: 0rem 0.75rem 0rem 0.75rem;
     }
 
     .logoStyle {
@@ -147,7 +147,7 @@
         justify-content: center;
         align-items: center;
         height: 20px;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 600;
         font-family: "Montserrat";
     }

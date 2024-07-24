@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../HelpSupport.module.css';
 import { toast } from 'react-toastify';
+import Input from './Input';
+import TextArea from './TextArea';
 
 const QueryForm = ({ isExpand, isCollapsing }) => {
     const [formData, setFormData] = useState({
@@ -11,8 +13,6 @@ const QueryForm = ({ isExpand, isCollapsing }) => {
         query: ''
     });
 
-    const [successMessage, setSuccessMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,13 +24,10 @@ const QueryForm = ({ isExpand, isCollapsing }) => {
 
         // Basic validation
         if (!formData.name || !formData.email || !formData.subject || !formData.query) {
-            setErrorMessage('Please fill in all required fields.');
             toast.error("Please fill in all required fields.")
             return;
         }
-        setSuccessMessage('Your query has been submitted successfully!');
         toast.success("Your query has been submitted successfully!")
-        setErrorMessage('');
         // Clear form
         setFormData({
             name: '',
@@ -45,64 +42,44 @@ const QueryForm = ({ isExpand, isCollapsing }) => {
         <div className={`${styles.contactFormWrapper} ${!isExpand && isCollapsing ? styles.hidden : ''}`}>
             <form className={styles.contactForm} onSubmit={handleSubmit}>
                 <div className={styles.miniInputs}>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            className={styles.inputField}
-                            value={formData.name}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            className={styles.inputField}
-                            value={formData.email}
-                            onChange={handleChange}
-                        />
-                    </div>
+                    <Input
+                        label="Name"
+                        id="name"
+                        type="text"
+                        value={formData.name}
+                        handleChange={handleChange}
+                    />
+                    <Input
+                        label="Email"
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        handleChange={handleChange}
+                    />
                 </div>
                 <div className={styles.miniInputs}>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="subject">Subject</label>
-                        <input
-                            type="text"
-                            id="subject"
-                            name="subject"
-                            className={styles.inputField}
-                            value={formData.subject}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="orderNumber">Order no.</label>
-                        <input
-                            type="text"
-                            id="orderNumber"
-                            name="orderNumber"
-                            className={styles.inputField}
-                            value={formData.orderNumber}
-                            onChange={handleChange}
-                        />
-                    </div>
+                    <Input
+                        label="Subject"
+                        id="subject"
+                        type="text"
+                        value={formData.subject}
+                        handleChange={handleChange}
+                    />
+                    <Input
+                        label="Order no."
+                        id="orderNumber"
+                        type="text"
+                        value={formData.orderNumber}
+                        handleChange={handleChange}
+                    />
                 </div>
                 <div className={styles.textareaContainer}>
-                    <div className={styles.formGroup} >
-                        <label htmlFor="query">Your Query</label>
-                        <textarea
-                            id="query"
-                            name="query"
-                            className={styles.textareaField}
-                            value={formData.query}
-                            onChange={handleChange}
-                        ></textarea>
-                    </div>
+                    <TextArea
+                        label="Your Query"
+                        id="query"
+                        value={formData.query}
+                        handleChange={handleChange}
+                    />
                 </div>
                 <button type="submit" className={styles.submitButton}>Submit</button>
             </form>

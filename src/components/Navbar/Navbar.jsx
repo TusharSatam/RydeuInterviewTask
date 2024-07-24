@@ -12,15 +12,17 @@ import {
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+    // State to manage the visibility of the language list dropdown
     const [isLanguageListVisible, setIsLanguageListVisible] = useState(false);
+    // State to manage the visibility of the language list dropdown
     const languageListRef = useRef(null);
-
+    // Handle click outside of the language list to close it
     const handleClickOutside = (event) => {
         if (languageListRef.current && !languageListRef.current.contains(event.target)) {
             setIsLanguageListVisible(false);
         }
     };
-
+    // Set up event listener for clicks outside the language list on component mount
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
@@ -30,14 +32,17 @@ const Navbar = () => {
 
     return (
         <nav className={styles.navbarContainer}>
+            {/* Logo */}
             <Link to='/'>
-            <img src={LOGO} className={styles.logoStyle} height={36} width={86} alt="logo"/>
+                <img src={LOGO} className={styles.logoStyle} height={36} width={86} alt="logo" />
             </Link>
             <div className={styles.navlinks}>
+                {/* Help link */}
                 <Link className={styles.navlink}>
                     <img src={helpIcon} alt="Help Icon" height={18} width={18} />
                     Help
                 </Link>
+                {/* Language selector button */}
                 <button
                     className={styles.navlink}
                     onClick={() => setIsLanguageListVisible(!isLanguageListVisible)}
@@ -48,6 +53,7 @@ const Navbar = () => {
                     Deutsch&nbsp;&nbsp;|&nbsp;&nbsp;EUR
                 </button>
                 <Link className={styles.moboNavlink}>Open Requests</Link>
+                {/* Language list dropdown */}
                 {isLanguageListVisible && (
                     <div id="language-list" className={styles.languageList} ref={languageListRef}>
                         <div className={styles.listItem}>English</div>
@@ -59,16 +65,17 @@ const Navbar = () => {
 
                     </div>
                 )}
+                {/* Profile button wrapper for desktop and mobile */}
                 <div className={styles.profileBtnWrappper}>
                     <button className={styles.profileBtn} aria-label="Profile">
                         <div className={styles.profileImgBg}>
-                        <img src={defaultProfileIcon} alt="Default Profile Icon" />
+                            <img src={defaultProfileIcon} alt="Default Profile Icon" />
                         </div>
-                        <img src={hambargerIcon} alt="Menu Icon" className={styles.hambargerIcon}/>
+                        <img src={hambargerIcon} alt="Menu Icon" className={styles.hambargerIcon} />
                     </button>
                     <button className={styles.moboProfileBtn} aria-label="Mobile Profile">
                         <img src={defaultProfileBlackIcon} alt="Default Profile Black Icon" />
-                        <img src={moboHambargerIcon} alt="Mobile Menu Icon" className={styles.hambargerIcon}/>
+                        <img src={moboHambargerIcon} alt="Mobile Menu Icon" className={styles.hambargerIcon} />
                     </button>
                 </div>
             </div>
