@@ -19,7 +19,8 @@
     width: 100%;
     z-index: -1;
 }
-.innerWrap{
+
+.innerWrap {
     display: block;
     overflow: hidden;
     position: absolute;
@@ -27,7 +28,8 @@
     box-sizing: border-box;
     margin: 0px;
 }
-.bgLayer{
+
+.bgLayer {
     position: absolute;
     inset: 0px;
     box-sizing: border-box;
@@ -72,42 +74,199 @@
     color: var(--primaryTextColor);
 }
 
-.cardContainer {
+.cardsContainer {
     width: 963px;
     max-width: 963px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 130px auto 0px auto;
+    flex-direction: column;
+    margin: 130px auto 300px auto;
+}
+
+.largeCardsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-radius: 11px;
+}
+
+.Card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--primaryBg);
+    box-shadow: var(--boxShadowColor);
+    border: 1px var(--grayBorder);
+    border-radius: 11px;
+    overflow: hidden;
+    padding: 2rem 3rem;
+
 }
 
 .miniCardsWrapper {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 3rem;
 }
 
 .miniCard {
     width: 472px;
-    height: 117px;
-    display: flex;
-    justify-content: center;
+    height: fit-content;
+    min-height: 117px;
     align-items: center;
-    gap: 1rem;
     background: var(--primaryBg);
     border-radius: 11px;
     box-shadow: var(--boxShadowColor);
+    display: grid;
+    grid-template-columns: 94px auto;
+    padding: 2rem 3rem;
+    border: 1.4px var(--grayBorder);
 }
 
-.minCardTexts {
+.cardDetails {
+    width: 100%;
+    height: fit-content;
+    /* min-height: 117px; */
+    align-items: center;
+    background: var(--primaryBg);
+    display: grid;
+    grid-template-columns: 94px auto 24px;
+    border: 1.4px var(--grayBorder);
+}
+
+.cardTexts {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
-    height: 54px;
+    text-align: left;
+    min-height: 54px;
 }
 
+.cardTitle {
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: var(--primaryTextColor);
+}
 
+.cardDesc {
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.5px;
+    text-align: left;
+    color: var(--secondaryTextColor);
+    padding-right: 10px;
+}
+
+.navigateIcon {
+    display: none;
+}
+
+.backLayer {
+    display: none;
+}
+
+.expandToggleBtn {
+    background: none;
+    border: none;
+}
+
+.expandSection {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.1s ease-in-out;
+    /* Add a delay for height transition */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.expandDownIcon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.chatIconWrapper,
+.socialIconWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 86px;
+    width: 86px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.socialIconWrapper {
+    margin: 1rem 0rem;
+    height: 44px;
+    width: 44px;
+}
+
+.chatIconWrapper:hover,
+.socialIconWrapper:hover {
+    border-radius: 6px 0px 0px 0px;
+    border: 1px 0px 0px 0px;
+    background-color: var(--secondaryBg);
+}
+
+.chatIcon {
+    height: 40px;
+    width: 40px;
+}
+
+.socialIcon {
+    height: 34px;
+    width: 34px;
+}
+
+.socialName {
+    font-family: "Montserrat";
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 13.41px;
+    text-align: left;
+
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.IconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.IconContainer.hidden {
+    opacity: 0;
+}
+
+.expandSection.show {
+    height: 100px;
+    align-items: flex-end;
+    transition-delay: 0s;
+    /* No delay for height when expanding */
+}
+
+.expandSection.hide {
+    height: 0;
+    transition-delay: 0.3s;
+    /* Delay height transition to let opacity transition complete */
+}
 
 @media screen and (max-width: 963px) {
     .heading {
@@ -130,6 +289,133 @@
 
     .helpSupportContainer {
         margin-top: 50px;
-        background-image: url("../../assets/Images/moboBgLayer.svg");
+        background-image: none;
+        /* background-image: url("../../assets/Images/moboBgLayer.svg"); */
+    }
+
+    .cardsContainer {
+        width: 93.6%;
+        margin-top: 38px;
+    }
+
+    .miniCardsWrapper {
+        width: 100%;
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .cardImage {
+        height: 24px;
+        width: 24px;
+    }
+
+    .cardTexts {
+        gap: 10px;
+    }
+
+    .cardTitle {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 14.63px;
+        letter-spacing: 0.02em;
+        text-align: left;
+
+    }
+
+    .cardDesc {
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12.19px;
+        text-align: left;
+
+    }
+
+    .cardTexts {
+        min-height: 30px;
+    }
+
+    .miniCard {
+        min-height: 67px;
+        width: 100%;
+        padding: 0px 14px;
+        grid-template-columns: 45px auto 16px;
+        border-radius: 6px;
+    }
+
+    .Card {
+        min-height: 67px;
+        padding: 14px 14px;
+        border-radius: 6px;
+    }
+
+    .cardDetails {
+        grid-template-columns: 45px auto 16px;
+    }
+
+    .IconContainer {
+        gap: 1rem;
+    }
+
+    .navigateIcon {
+        display: flex;
+        height: 16px;
+        width: 16px;
+        justify-content: end;
+        cursor: pointer;
+    }
+
+    .backLayer {
+        display: flex;
+        position: absolute;
+        top: 0px;
+        width: 100vw;
+        height: 236px;
+        z-index: -1;
+        /* background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        background-image: url("../../assets/Images/moboBgLayer.svg"); */
+    }
+
+    .moboBgLayer {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .largeCardsWrapper {
+        gap: 1.25rem;
+    }
+
+    .chatIcon {
+        height: 30px;
+        width: 30px;
+    }
+
+    .socialIcon {
+        height: 24px;
+        width: 24px;
+    }
+
+    .socialName {
+        font-family: "Montserrat";
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 13.41px;
+        text-align: left;
+
+    }
+
+    .expandSection.show {
+        height: 80px;
+    }
+
+    .chatIconWrapper {
+        height: 80px;
+    }
+    .socialIconWrapper {
+        height: 34px;
+        width: 34px;
     }
 }
