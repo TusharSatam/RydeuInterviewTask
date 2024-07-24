@@ -3,6 +3,7 @@ import styles from "../HelpSupport.module.css";
 import { expandDownIcon, facebook, instagram, linkedIn, liveChat, telegram, twitter, upArrowIcon, whatsApp } from '../../../assets/Images';
 import ChatIcons from './ChatIcons';
 import SocialIcons from './SocialIcons';
+import QueryForm from './QueryForm';
 
 const Card = ({ icon, title, description }) => {
     const [isExpand, setIsExpand] = useState(false);
@@ -21,7 +22,7 @@ const Card = ({ icon, title, description }) => {
     return (
         <div className={styles.Card}>
             <div className={styles.cardDetails}>
-                <img src={icon} alt="faqIcon" className={styles.cardImage} />
+                <img src={icon} alt="cardIcon" className={styles.cardImage} />
                 <div className={styles.cardTexts}>
                     <h3 className={styles.cardTitle}>{title}</h3>
                     <h4 className={styles.cardDesc}>{description}</h4>
@@ -34,11 +35,11 @@ const Card = ({ icon, title, description }) => {
                     />
                 </button>
             </div>
-            <div className={`${styles.expandSection} ${isExpand ? styles.show : (isCollapsing ? '' : styles.hide)}`}>
+            <div className={`${styles.expandSection} ${title==="Send Query"?styles.autoHeight:""} ${isExpand ? styles.show : (isCollapsing ? '' : styles.hide)}`}>
                 {title === "Chat" ?
                     <ChatIcons isExpand={isExpand} isCollapsing={isCollapsing} /> :
                     title === "Social" ?
-                        <SocialIcons isExpand={isExpand} isCollapsing={isCollapsing} /> : null
+                        <SocialIcons isExpand={isExpand} isCollapsing={isCollapsing} /> : <QueryForm isExpand={isExpand} isCollapsing={isCollapsing} />
                 }
             </div>
         </div>
